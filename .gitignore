@@ -1,0 +1,53 @@
+# Virtual Environment
+venv/
+env/
+.env
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# API Keys and Secrets
+.env
+config.py
+*api_key*
+
+# Large Files and Uploads
+uploads/
+*.pdf
+*.zip
+*.tar.gz
+
+# Vector Database
+*.faiss
+*.index
+embeddings/
+
+# Logs
+*.log
+logs/
+
+# Flask Instance
+instance/
+
+# Coverage
+.coverage
+htmlcov/
+
+# Distribution
+dist/
+build/
+*.egg-info/

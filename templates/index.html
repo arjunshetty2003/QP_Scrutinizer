@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QP Scrutiniser</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>QP Scrutiniser</h1>
+            <p>Validate question papers against syllabus and textbooks</p>
+        </header>
+
+        <div class="upload-section">
+            <h2>Upload Files</h2>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <div class="file-group">
+                    <label for="syllabus">Syllabus JSON:</label>
+                    <input type="file" id="syllabus" name="syllabus" accept=".json" required>
+                </div>
+
+                <div class="file-group">
+                    <label for="question_paper">Question Paper JSON:</label>
+                    <input type="file" id="question_paper" name="question_paper" accept=".json" required>
+                </div>
+
+                <div class="file-group">
+                    <label for="textbooks">Textbook PDFs:</label>
+                    <input type="file" id="textbooks" name="textbooks" accept=".pdf" multiple>
+                </div>
+
+                <button type="submit" class="btn-primary">Upload and Process Files</button>
+            </form>
+        </div>
+
+        <div id="uploadStatus" class="status-section" style="display: none;">
+            <h3>Upload Status</h3>
+            <div id="uploadMessage"></div>
+        </div>
+
+        <div id="validationSection" class="validation-section" style="display: none;">
+            <h2>Validation</h2>
+            <button id="validateBtn" class="btn-secondary">Start Validation</button>
+            <div id="validationProgress" style="display: none;">
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+                <div id="progressText">Processing...</div>
+            </div>
+        </div>
+
+        <div id="resultsSection" class="results-section" style="display: none;">
+            <h2>Validation Results</h2>
+            <div class="results-summary">
+                <div class="summary-stats">
+                    <div class="stat-card in-syllabus">
+                        <h3 id="inSyllabusCount">0</h3>
+                        <p>In Syllabus</p>
+                    </div>
+                    <div class="stat-card out-syllabus">
+                        <h3 id="outSyllabusCount">0</h3>
+                        <p>Out of Syllabus</p>
+                    </div>
+                    <div class="stat-card in-textbook">
+                        <h3 id="inTextbookCount">0</h3>
+                        <p>In Textbook</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="filter-controls">
+                <label for="statusFilter">Filter by Status:</label>
+                <select id="statusFilter">
+                    <option value="all">All Questions</option>
+                    <option value="IN_SYLLABUS">In Syllabus</option>
+                    <option value="OUT_OF_SYLLABUS">Out of Syllabus</option>
+                </select>
+            </div>
+
+            <div id="resultsContainer"></div>
+            
+            <button id="downloadBtn" class="btn-primary">Download Results</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
