@@ -21,7 +21,7 @@ os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 # --- Gemini API Key Setup ---
 # IMPORTANT: Replace this with your new API key from https://aistudio.google.com/app/apikey
-GEMINI_API_KEY = "GEMINI_API_KEY_HERE"  # <- UPDATED WITH NEW KEY
+GEMINI_API_KEY = "AIzaSyB-f56OSuAI0SdtxEGWKuyT6Z4_QSxN5xU"  # <- UPDATED WITH NEW KEY
 EMBEDDING_MODEL_NAME = "models/text-embedding-004"
 GENERATIVE_MODEL_NAME = 'gemini-1.5-flash-latest'
 LLM_CALL_DELAY_SECONDS = 2
